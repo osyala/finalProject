@@ -71,3 +71,37 @@ img {
  * YOUR CODE HERE
  */
 
+
+body{
+    background-color: #F7DFE4;
+}
+
+h1{
+    font-family: "Century Gothic", sans serif;
+    text-align: center;
+    color: #000000
+}
+
+input{
+    width: 300px;
+    display: block;
+    margin: 1rem;
+    margin-left: 510px;
+    padding: 5px;
+    text-decoration: none;
+    background-color: #FEF6F9;
+    color: #000;
+    font-family: "Century Gothic", sans serif;
+
+}
+
+input{
+    outline: 0;
+    border:0;
+}
+
+input [type='button']:hover{
+    border: 10px solid #000;
+    color: #E6F1F1;
+
+}
