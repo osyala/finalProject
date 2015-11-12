@@ -55,12 +55,18 @@ var SignUpView = React.createClass({
 
 	render: function(){
 		return(
+<<<<<<< Updated upstream
 			<div className='SignUpView'>
 			
 				<h1 className="SignUp">Dibs</h1>
 
 				<div className="hr"></div>
 				<p className="intro">Dibs is a simple way to advertise and promote your restaurant with unique deals and freebies for your community</p>
+=======
+			<div id='SignUpView'>
+			
+				<h1 className="SignUp">Dibs</h1>
+>>>>>>> Stashed changes
 
 				<input  type='text' 
 						onBlur={this._storeUserName} 

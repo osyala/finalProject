@@ -131,7 +131,28 @@ var Router = Backbone.Router.extend({
 
 	showSubmitView: function(){
 		React.render(<SubmitView model={new PayItModel} logUserOut={this.logUserOut} />,
+<<<<<<< Updated upstream
+=======
 		 document.getElementById('container'))
+	},
+
+	showItemsView: function(){
+
+		var Item = Parse.Object.extend("Item")
+		var itemQuery = new Parse.Query(Item)	
+		itemQuery.equalTo("claimed" , false)
+		itemQuery.find()
+			// success
+			.then(function(items){
+				console.log('items', items)
+				React.render(<ItemsView items={items} logUserOut={this.logUserOut} />,
+>>>>>>> Stashed changes
+		 document.getElementById('container'))
+			}).fail(function(err){
+				console.log("there is something going on")
+			})
+
+		
 	},
 
 	showItemsView: function(){
