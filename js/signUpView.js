@@ -27,25 +27,7 @@ var SignUpView = React.createClass({
 	_getUserData: function(){
 		var usrnm = this.userAccount.username
 		var pass = this.userAccount.password
-		// store usernames and passwords in parse 
-		// 
-		// currently passing processUserInfo an object...
-		//    
-		//    this.userAccount = {
-		//    	password: 'blah'
-		//    	username: 'oscar'
-		//    }
-		//    
-		//    also...
-		//     = 'oscar'
-		//     = 'blah'
-		//    
-		// BUT
-		// 
-		// processUserInfo expects two 
-		// strings:
-		//     'oscar', 'blah'
-		//     
+
 		console.log(this.userAccount)
 		this.props.processUserInfo(usrnm, pass)
 		// take them to the submit view
@@ -55,18 +37,12 @@ var SignUpView = React.createClass({
 
 	render: function(){
 		return(
-<<<<<<< Updated upstream
 			<div className='SignUpView'>
 			
 				<h1 className="SignUp">Dibs</h1>
 
 				<div className="hr"></div>
 				<p className="intro">Dibs is a simple way to advertise and promote your restaurant with unique deals and freebies for your community</p>
-=======
-			<div id='SignUpView'>
-			
-				<h1 className="SignUp">Dibs</h1>
->>>>>>> Stashed changes
 
 				<input  type='text' 
 						onBlur={this._storeUserName} 
@@ -90,6 +66,5 @@ var SignUpView = React.createClass({
 			)
 	}
 })
-
 
 export {SignUpView}
