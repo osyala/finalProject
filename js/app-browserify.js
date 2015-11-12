@@ -18,6 +18,7 @@ console.log('js loaded')
 import {SignUpView} from './signUpView.js'
 import {LoginView} from './LoginView.js'
 import {SubmitView} from './SubmitView.js'
+import {ItemsView} from './ItemsView.js'
 
 
 
@@ -33,7 +34,7 @@ var APP_ID = 'YGWAe5zmSI80pR5PKp7RmDMcWdVDzl0MjVYBd8Cq',
 Parse.initialize(APP_ID,JS_KEY)
 
 var PayItModel = Backbone.Model.extend({
-	url: 'https://api.parse.com/1/classes/final',
+	url: 'https://api.parse.com/1/classes/Item',
 
 	parseHeaders: {
 		"X-Parse-Application-Id": APP_ID,
@@ -41,17 +42,20 @@ var PayItModel = Backbone.Model.extend({
 	}
 })
 
-var PayItCollection = Backbone.Model.extend({
-	url: 'https://api.parse.com/1/classes/final',
+
+
+var PayItCollection = Backbone.Collection.extend({
+	url: 'https://api.parse.com/1/classes/Item',
 
 	parseHeaders: {
 		"X-Parse-Application-Id": APP_ID,
         "X-Parse-REST-API-Key": REST_API_KEY
 	},
 
-	model: PayItModel,
+	// model: PayItModel,
 
 	parse: function(responseData){
+		console.log(responseData.results)
 		return responseData.results
 	}
 })
@@ -64,13 +68,14 @@ var Router = Backbone.Router.extend({
 	routes:{
 		'login': 'showLoginView',
 		'submit': 'showSubmitView',
-		'*default ': 'showSignUpView'
+		'items': 'showItemsView',
+		'*path': 'showSignUpView'
 	},
 
 	logUserOut: function(){
 		Parse.User.logOut().then(
 			function(){
-				location.hash = 'login'
+				location.hash = '*path'
 			})
 		this.pc.reset()
 	},
@@ -125,8 +130,26 @@ var Router = Backbone.Router.extend({
 	},
 
 	showSubmitView: function(){
-		React.render(<SubmitView logUserOut={this.logUserOut} />,
+		React.render(<SubmitView model={new PayItModel} logUserOut={this.logUserOut} />,
 		 document.getElementById('container'))
+	},
+
+	showItemsView: function(){
+
+		var Item = Parse.Object.extend("Item")
+		var itemQuery = new Parse.Query(Item)	
+		itemQuery.equalTo("claimed" , false)
+		itemQuery.find()
+			// success
+			.then(function(items){
+				console.log('items', items)
+				React.render(<ItemsView items={items} logUserOut={this.logUserOut} />,
+		 document.getElementById('container'))
+			}).fail(function(err){
+				console.log("there is something going on")
+			})
+
+		
 	},
 
 	initialize: function(){

@@ -44,9 +44,20 @@ var LoginView = React.createClass({
 		return(
 			<div id="LoginView">
 				<h1>Login to give</h1>
-				<input type="text" onBlur={this._storeUserName} name="username" placeholder='Username' />
-				<input type="password" onBlur={this._storeUserName} name='password' placeholder='Password' />
-				<input type='button' onClick={this._getUserData} value='Login' id='add' />
+				<input type="text" 
+						onBlur={this._storeUserName} 
+						name="username" 
+						placeholder='Username' />
+
+				<input type="password" 
+						onBlur={this._storeUserName} 
+						name='password' 
+						placeholder='Password' />
+
+				<input type='button' 
+						onClick={this._getUserData} 
+						value='Login' 
+						id='add' />
 			</div>
 			)
 	}

@@ -56,7 +56,8 @@ var SignUpView = React.createClass({
 	render: function(){
 		return(
 			<div id='SignUpView'>
-				<h1>Welcome, please Sign Up for a new account</h1>
+			
+				<h1 className="SignUp">Dibs</h1>
 
 				<input  type='text' 
 						onBlur={this._storeUserName} 
@@ -72,6 +73,10 @@ var SignUpView = React.createClass({
 						onClick={this._getUserData}
 						value='Sign Up' 
 						id='signup' />
+				<input type='button'
+						onClick={this._getUserData}
+						value='Login'
+						id='login' />
 			</div>
 			)
 	}
