@@ -131,7 +131,11 @@ var Router = Backbone.Router.extend({
 
 	showSubmitView: function(){
 		React.render(<SubmitView model={new PayItModel} logUserOut={this.logUserOut} />,
+
 		document.getElementById('container'))
+
+		 document.getElementById('container'))
+
 	},
 
 	showItemsView: function(){
@@ -144,6 +148,7 @@ var Router = Backbone.Router.extend({
 			.then(function(items){
 				console.log('items', items)
 				React.render(<ItemsView items={items} logUserOut={this.logUserOut} />,
+
 				document.getElementById('container'))
 			}).fail(function(err){
 				console.log("there is something going on")
@@ -163,6 +168,9 @@ var Router = Backbone.Router.extend({
 				console.log('items', items)
 				React.render(<ItemsView items={items} logUserOut={this.logUserOut} />,
 		 		document.getElementById('container'))
+
+		 document.getElementById('container'))
+
 			}).fail(function(err){
 				console.log("there is something going on")
 			})
