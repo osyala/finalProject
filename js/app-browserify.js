@@ -9,7 +9,7 @@ var $ = require('jquery'),
 	Backbone = require('backbone'),
 	Parse = require('parse')
 
-
+// codes
 
 
 console.log('js loaded')
