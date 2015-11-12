@@ -55,9 +55,12 @@ var SignUpView = React.createClass({
 
 	render: function(){
 		return(
-			<div id='SignUpView'>
+			<div className='SignUpView'>
 			
 				<h1 className="SignUp">Dibs</h1>
+
+				<div className="hr"></div>
+				<p className="intro">Dibs is a simple way to advertise and promote your restaurant with unique deals and freebies for your community</p>
 
 				<input  type='text' 
 						onBlur={this._storeUserName} 
